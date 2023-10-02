@@ -59,3 +59,7 @@ function fillCircle(x, y, r) {
   ctx.arc(x, y, r, 0, 2 * Math.PI);
   ctx.fill();
 }
+
+function ptInCircle(x1,y1,x,y,r){
+if (x1>r)
+}
