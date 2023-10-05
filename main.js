@@ -20,8 +20,6 @@ let blackCircle = {
 window.addEventListener("load", draw);
 
 function draw() {
-  // LOGIC - test if mouse in circles
-
   // DRAW - draw circles
   ctx.clearRect(0, 0, cnv.width, cnv.height);
 
@@ -29,13 +27,11 @@ function draw() {
   fillCircle(150, 150, 100);
   if (ptInCircle(mouseX, mouseY,150,150,100)){
   document.body.style.backgroundColor = "red";
-console.log("red");
   }else if (ptInCircle(mouseX,mouseY, 475, 125, 60 )){
     document.body.style.backgroundColor = "green";
   }else if (ptInCircle(mouseX,mouseY, 350, 275, 40)) {
     document.body.style.backgroundColor = "blue";
-  }
-  if (ptInCircle(mouseX, mouseY, blackCircle.x, blackCircle.y, blackCircle.r)){
+  } if(ptInCircle(mouseX, mouseY, blackCircle.x, blackCircle.y, blackCircle.r)){
     document.body.style.backgroundColor = "white";
     blackCircle = newRandomCircle();
   }
@@ -49,18 +45,18 @@ console.log("red");
   ctx.fillStyle = "black";
   fillCircle(blackCircle.x, blackCircle.y, blackCircle.r);
 
-function newRandomCircle(){
-return{
-  x:Math.random() * cnv.width,
-  y:Math.random() * cnv.height,
-  r:Math.random() * 30 + 15, 
+function newRandomCircle() {
+return {
+  x: Math.random() * cnv.width,
+  y: Math.random() * cnv.height,
+  r: Math.random() * 30 + 15, 
 };
 }
 
   // Redraw
   requestAnimationFrame(draw);
-}
 
+}
 // Event Stuff
 document.addEventListener("mousemove", mousemoveHandler);
 
