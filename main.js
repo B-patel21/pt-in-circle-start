@@ -35,7 +35,7 @@ function draw() {
     document.body.style.backgroundColor = "white";
     blackCircle = newRandomCircle();
   }
-
+  
   ctx.fillStyle = "green";
   fillCircle(475, 125, 60);
 
