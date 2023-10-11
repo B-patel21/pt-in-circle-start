@@ -25,17 +25,17 @@ function draw() {
 
   ctx.fillStyle = "red";
   fillCircle(150, 150, 100);
-  if (ptInCircle(mouseX, mouseY,150,150,100)){
-  document.body.style.backgroundColor = "red";
-  }else if (ptInCircle(mouseX,mouseY, 475, 125, 60 )){
+  if (ptInCircle(mouseX, mouseY, 150, 150, 100)) {
+    document.body.style.backgroundColor = "red";
+  } else if (ptInCircle(mouseX, mouseY, 475, 125, 60)) {
     document.body.style.backgroundColor = "green";
-  }else if (ptInCircle(mouseX,mouseY, 350, 275, 40)) {
+  } else if (ptInCircle(mouseX, mouseY, 350, 275, 40)) {
     document.body.style.backgroundColor = "blue";
-  } if(ptInCircle(mouseX, mouseY, blackCircle.x, blackCircle.y, blackCircle.r)){
+  } else if (ptInCircle(mouseX, mouseY, blackCircle.x, blackCircle.y, blackCircle.r)) {
     document.body.style.backgroundColor = "white";
     blackCircle = newRandomCircle();
   }
-  
+
   ctx.fillStyle = "green";
   fillCircle(475, 125, 60);
 
@@ -45,18 +45,10 @@ function draw() {
   ctx.fillStyle = "black";
   fillCircle(blackCircle.x, blackCircle.y, blackCircle.r);
 
-function newRandomCircle() {
-return {
-  x: Math.random() * cnv.width,
-  y: Math.random() * cnv.height,
-  r: Math.random() * 30 + 15, 
-};
-}
-
   // Redraw
   requestAnimationFrame(draw);
-
 }
+
 // Event Stuff
 document.addEventListener("mousemove", mousemoveHandler);
 
@@ -74,4 +66,17 @@ function fillCircle(x, y, r) {
   ctx.beginPath();
   ctx.arc(x, y, r, 0, 2 * Math.PI);
   ctx.fill();
+}
+
+function ptInCircle(x1, y1, x, y, r) {
+  let distance = Math.sqrt((x1 - x) ** 2 + (y1 - y) ** 2);
+  return distance < r;
+}
+
+function newRandomCircle() {
+  return {
+    x: Math.random() * cnv.width,
+    y: Math.random() * cnv.height,
+    r: Math.random() * 30 + 15,
+  };
 }
